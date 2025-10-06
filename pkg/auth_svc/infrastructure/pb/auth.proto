@@ -6,8 +6,14 @@ option go_package="./pkg/auth_svc/infrastructure/pb";
 
 service AuthService{
     rpc UserSignUp(SignUpRequest) returns (SignUpResponse);
+    rpc UserLogin(RequestUserLogin) returns (ResponseUserLogin);
+    rpc UserOTPVerication(RequestOtpVefification) returns (ResponseOtpVerification);
+    rpc ForgotPasswordRequest(RequestForgotPass) returns (ResponseOtpVerification);
+    rpc ResetPassword(RequestResetPass) returns (ResponseErrorMessage);
 }
-
+message ResponseErrorMessage{
+    string ErrorMessage=1;
+}
 message SignUpRequest{
     string UserName =1;
     string Name =2;
@@ -19,3 +25,44 @@ message SignUpResponse{
     string Token=1;
     string ErrorMessage =2;
 }
+message RequestUserLogin{
+    string Email=1;
+    string Password=2;
+}
+message ResponseUserLogin{
+    string AccessToken=1;
+    string RefreshToken=2;
+    string ErrorMessage=3;
+}
+message RequestOtpVefification{
+    string TempToken=1;
+    string Otp=2;
+
+}
+message ResponseOtpVerification{
+    string AccessToken=1;
+    string RefreshToken=2;
+    string ErrorMessage =3;
+    string Otp=4;
+}
+message RequestForgotPass{
+    string Email=1;
+}
+message ResponseForgotPass{
+    string Token=1;
+    string ErrorMessage=2;
+}
+message RequestResetPass{
+    string Otp = 1;
+    string Password =2;
+    string ConfirmPassword = 3;
+    string TempToken = 4;
+}
+// message ResponseResetPass{
+//     string Token =1;
+//     string ErrorMessage= 2;
+// }
+// message PingRequest {}
+// message PingResponse {
+//   string message = 1;
+// }
