@@ -1,3 +1,9 @@
+# Social Media API Gateway
+
+A scalable API Gateway built using Golang that acts as the single entry point for a microservices-based social media platform.
+
+The gateway is responsible for routing requests, authentication validation, service communication, and centralized request handling between client applications and backend services.
+
 ## Architecture Overview
 
 ```mermaid
@@ -21,23 +27,28 @@ flowchart TB
     Auth --> AuthDB
     Post --> PostDB
 ```
-# Social Media API Gateway
 
-A scalable API Gateway built using Golang that acts as the single entry point for a microservices-based social media platform.
+## Services
 
-The gateway is responsible for routing requests, authentication validation, service communication, and centralized request handling between client applications and backend services.
+| Service                     | Description                                                    |
+| --------------------------- | -------------------------------------------------------------- |
+| Authentication Service      | User registration, login, JWT authentication, OTP verification |
+| Post & Relationship Service | Post management, feeds, follow/unfollow functionality          |
+| Chat Service                | Planned                                                        |
+| Notification Service        | Planned                                                        |
 
-## Architecture
+## Engineering Concepts Demonstrated
 
-The project follows a microservices architecture and currently integrates:
-
-* Authentication Service
-* Post & Relationship Service
-
-Planned Services:
-
-* Chat Service
-* Notification Service
+* Microservice Architecture
+* API Gateway Pattern
+* gRPC Communication
+* Protocol Buffers
+* JWT Authentication
+* Clean Architecture
+* Dependency Injection
+* Repository Pattern
+* PostgreSQL Database Design
+* Unit Testing
 
 ## Features
 
@@ -56,7 +67,6 @@ Planned Services:
 * Protocol Buffers
 * JWT
 * PostgreSQL
-* Docker (Planned)
 
 ## Related Services
 
@@ -76,4 +86,6 @@ https://github.com/Anvarsha-k/SocialMediaPostAndRelationService
 * Kubernetes Deployment
 * Distributed Logging and Monitoring
 
-This project was developed to explore scalable backend systems and microservice communication patterns commonly used in modern social media platforms.
+## Project Goal
+
+This project was developed to explore scalable backend systems, microservice communication patterns, API Gateway design, and service-oriented architecture commonly used in modern social media platforms.
