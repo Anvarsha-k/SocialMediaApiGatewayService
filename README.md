@@ -1,14 +1,26 @@
-Client
-  ↓
-API Gateway
-  ↓
- ┌──────────────┬──────────────┐
- │ Auth Service │ Post Service │
- └──────────────┴──────────────┘
-  ↓                ↓
-PostgreSQL      PostgreSQL
+## Architecture Overview
 
+```mermaid
+flowchart TB
 
+    Client["📱 Web / Mobile Client"]
+
+    Gateway["🚪 API Gateway"]
+
+    Auth["🔐 Authentication Service"]
+    Post["📝 Post & Relationship Service"]
+
+    AuthDB[("🐘 PostgreSQL")]
+    PostDB[("🐘 PostgreSQL")]
+
+    Client --> Gateway
+
+    Gateway --> Auth
+    Gateway --> Post
+
+    Auth --> AuthDB
+    Post --> PostDB
+```
 # Social Media API Gateway
 
 A scalable API Gateway built using Golang that acts as the single entry point for a microservices-based social media platform.
