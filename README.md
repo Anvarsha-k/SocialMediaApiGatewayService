@@ -1,3 +1,14 @@
+Client
+  ↓
+API Gateway
+  ↓
+ ┌──────────────┬──────────────┐
+ │ Auth Service │ Post Service │
+ └──────────────┴──────────────┘
+  ↓                ↓
+PostgreSQL      PostgreSQL
+
+
 # Social Media API Gateway
 
 A scalable API Gateway built using Golang that acts as the single entry point for a microservices-based social media platform.
